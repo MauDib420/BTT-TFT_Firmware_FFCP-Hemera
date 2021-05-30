@@ -34,7 +34,7 @@
  * It doesn't interfere with the "Screenshot" and "Marlin/Touch Mode" other than if
  * enabled, long press "Back" will not trigger "Screenshot" or "Marlin/Touch Mode"
  */
-#define SMART_HOME
+//#define SMART_HOME
 
 /**
  * This setting determines the communication speed of the printer.
@@ -78,7 +78,7 @@
 
 // Mesh Leveling Display Colors
 // Set the colors used for drawing the mesh with the minimun and maximum value in the grid.
-#define MESH_MIN_COLOR 7  // Default: 7
+#define MESH_MIN_COLOR 3  // Default: 7
 #define MESH_MAX_COLOR 2  // Default: 2
 
 //===========================================================================
@@ -106,7 +106,7 @@
 #define MARLIN_FNCOLOR 0  // Default: 0
 
 // Text displayed at the top of the TFT in Marlin Mode
-#define MARLIN_BANNER_TEXT "Marlin Mode"  // Default: "Marlin Mode"
+#define MARLIN_BANNER_TEXT "Marlin Emulation"  // Default: "Marlin Mode"
 
 // Show banner text at the top of the TFT in Marlin Mode
 #define MARLIN_SHOW_BANNER true  // To enabled: true | To disabled: false (Default: true)
@@ -117,7 +117,7 @@
  * Options: 0: Disabled (RECOMMENDED FOR TFT24)
  *          1: Enabled
  */
-#define MARLIN_MODE_FULLSCREEN 0  // Default: 0
+#define MARLIN_MODE_FULLSCREEN 1  // Default: 0
 
 /**
  * Keep Serial always On (ONLY SUPPORTED ON TFT24 V1.1, TFT35 V3.0, AND TFT28 V3.0)
@@ -149,10 +149,10 @@
                            // cooling if marlin supports ontroller fan (M710).
 
 #define PREHEAT_LABELS {"PLA", "PETG", "ABS", "WOOD", "TPU", "NYLON"}
-#define PREHEAT_HOTEND {200,   240,    230,   170,    220,   250}
-#define PREHEAT_BED    { 60,    70,     90,    50,     50,    90}
+#define PREHEAT_HOTEND {210,   245,    250,   180,    220,   250}
+#define PREHEAT_BED    { 65,    75,     100,    50,     60,    100}
 
-#define HEAT_MAX_TEMP   {275,       275,       275,       275,       275,       275,       150,    60}
+#define HEAT_MAX_TEMP   {350,       275,       275,       275,       275,       275,       130,    60}
 #define HEAT_SIGN_ID    {"T0:",     "T1:",     "T2:",     "T3:",     "T4:",     "T5:",     "B:",   "C:"}
 #define HEAT_DISPLAY_ID {"T0",      "T1",      "T2",      "T3",      "T4",      "T5",      "Bed",  "Chamber"}
 #define HEAT_CMD        {"M104 T0", "M104 T1", "M104 T2", "M104 T3", "M104 T4", "M104 T5", "M140", "M141"}
@@ -162,7 +162,7 @@
 #define EXTRUDER_ID {"E0", "E1", "E2", "E3", "E4", "E5"}
 
 // Prevent extrusion if the temperature is below set temperature
-#define PREVENT_COLD_EXTRUSION_MINTEMP 180
+#define PREVENT_COLD_EXTRUSION_MINTEMP 170
 
 /**
  * Cooling Fan & Controller Fan
@@ -197,12 +197,12 @@
 #define EXTRUDE_FAST_SPEED   1200
 
 // Size of machine
-#define X_MIN_POS   0
-#define Y_MIN_POS   0
+#define X_MIN_POS   -36
+#define Y_MIN_POS   -10
 #define Z_MIN_POS   0
-#define X_MAX_POS 235
-#define Y_MAX_POS 235
-#define Z_MAX_POS 250
+#define X_MAX_POS 230
+#define Y_MAX_POS 140
+#define Z_MAX_POS 175
 
 /**
  * Raised Z height for probing
@@ -213,10 +213,10 @@
 #define PROBING_Z_RAISE 20.0f
 
 // Pause Settings
-#define NOZZLE_PAUSE_RETRACT_LENGTH               15  // (mm)
-#define NOZZLE_RESUME_PURGE_LENGTH                16  // (mm)
+#define NOZZLE_PAUSE_RETRACT_LENGTH               20  // (mm)
+#define NOZZLE_RESUME_PURGE_LENGTH                20  // (mm)
 #define NOZZLE_PAUSE_X_POSITION     (X_MIN_POS + 10)  // (mm) Must be an integer
-#define NOZZLE_PAUSE_Y_POSITION     (Y_MIN_POS + 10)  // (mm) Must be an integer
+#define NOZZLE_PAUSE_Y_POSITION     (Y_MAX_POS - 10)  // (mm) Must be an integer
 #define NOZZLE_PAUSE_Z_RAISE                      20  // (mm)
 #define NOZZLE_PAUSE_E_FEEDRATE                  600  // (mm/min) retract & purge feedrate
 #define NOZZLE_PAUSE_XY_FEEDRATE                6000  // (mm/min) X and Y axes feedrate
@@ -264,7 +264,7 @@
  * On-Board SD Card and auto-configure M27 AutoReport with M115 command.
  * Set the time interval to poll SD Printing status if Marlin reports M27 AutoReport as disabled.
  */
-#define M27_REFRESH             3     // Time in sec for M27 command
+#define M27_REFRESH             10     // Time in sec for M27 command
 #define M27_WATCH_OTHER_SOURCES true  // if true the polling on M27 report is always active. Case: SD print
                                       // started not from TFT35
 
@@ -279,7 +279,7 @@
  *
  * Options: [0: Disabled, 1: Auto-detect, 2: ABL, 3: BBL, 4: UBL, 5: MBL]
  */
-#define ENABLE_BL_VALUE 1  // Default: 1
+#define ENABLE_BL_VALUE 4  // Default: 1
 
 /**
  * TouchMI settings (on ABL menu)
@@ -323,7 +323,7 @@
  *
  * NOTE: Enable it, in case Marlin firmware does not properly support M600 on the mainboard.
  */
-#define EMULATE_M600 true  // To enabled: true | To disabled: false (Default: true)
+#define EMULATE_M600 false  // To enabled: true | To disabled: false (Default: true)
 
 /**
  * M601: Pause Print
